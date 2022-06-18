@@ -12,7 +12,7 @@ public class Enemy : MonoBehaviour
 
     public GameObject destroyEffect;
 
-    public float timeBtwAttack;
+    private float timeBtwAttack;
     public float startTimeBtwAttack;
     public float speed;
     public float normalSpeed;

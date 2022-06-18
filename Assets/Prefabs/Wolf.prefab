@@ -45,6 +45,7 @@ GameObject:
   - component: {fileID: 6537923171218493489}
   - component: {fileID: 6537923171218493490}
   - component: {fileID: 6537923171218493491}
+  - component: {fileID: -1016231881354557141}
   m_Layer: 3
   m_Name: Wolf
   m_TagString: Enemy
@@ -102,8 +103,8 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -2.3776886, y: 0.2765375}
-  m_Size: {x: 3.880814, y: 2.8039005}
+  m_Offset: {x: -2.079423, y: -0.030247444}
+  m_Size: {x: 3.2161303, y: 2.1903508}
   m_Direction: 1
 --- !u!95 &6537923171218493490
 Animator:
@@ -138,12 +139,28 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   startStopTime: 0.7
   destroyEffect: {fileID: 2984930678337600022, guid: c5b43db0564d8624c803c31f89447ceb, type: 3}
-  timeBtwAttack: 0
+  timeBtwAttack: 1
   startTimeBtwAttack: 1
   speed: 3
   normalSpeed: 3
   health: 3
   damage: 1
+--- !u!58 &-1016231881354557141
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6537923171218493492}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -3.57, y: 0.68}
+  serializedVersion: 2
+  m_Radius: 1
 --- !u!1 &6537923171246480819
 GameObject:
   m_ObjectHideFlags: 0
