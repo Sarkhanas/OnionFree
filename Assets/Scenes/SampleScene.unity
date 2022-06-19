@@ -287,6 +287,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 406848328808531257, guid: 836b79490d41fac43af96c69f36c9cc2, type: 3}
+      propertyPath: health
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 836b79490d41fac43af96c69f36c9cc2, type: 3}
 --- !u!1001 &4669882837568490885
@@ -365,6 +369,22 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 6537923171218493488, guid: a8d1e77405626f44c8c13302dadd8f1b, type: 3}
+      propertyPath: m_Mass
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6537923171218493488, guid: a8d1e77405626f44c8c13302dadd8f1b, type: 3}
+      propertyPath: m_Constraints
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 6537923171218493488, guid: a8d1e77405626f44c8c13302dadd8f1b, type: 3}
+      propertyPath: m_UseAutoMass
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6537923171218493488, guid: a8d1e77405626f44c8c13302dadd8f1b, type: 3}
+      propertyPath: m_SleepingMode
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6537923171218493492, guid: a8d1e77405626f44c8c13302dadd8f1b, type: 3}
       propertyPath: m_Name
       value: Wolf

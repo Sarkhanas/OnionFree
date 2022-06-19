@@ -2775,7 +2775,7 @@ AnimationClip:
   m_HasMotionFloatCurves: 0
   m_Events:
   - time: 0.25
-    functionName: OnTriggerStay2D
+    functionName: OnEnemyAttack
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
