@@ -6,6 +6,10 @@ TagManager:
   tags:
   - Enemy
   - Bullet
+  - Block
+  - Wall
+  - RoomPoint
+  - Rooms
   layers:
   - Default
   - TransparentFX

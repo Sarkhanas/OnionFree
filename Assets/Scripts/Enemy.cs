@@ -46,7 +46,6 @@ public class Enemy : MonoBehaviour
         else
             transform.eulerAngles = new Vector3(0, 0, 0);
 
-        anim.SetBool("isRunning", true);
         transform.position = Vector2.MoveTowards(transform.position, player.transform.position, speed * Time.deltaTime);
     }
 
@@ -56,23 +55,13 @@ public class Enemy : MonoBehaviour
         health -= damage;
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        Debug.Log("1");
-    }
-
-    private void OnTriggerExit2D(Collider2D collision)
-    {
-        Debug.Log("2");
-    }
-
     private void OnTriggerStay2D(Collider2D other)
     {
         if (other.CompareTag("Player"))
         {
             if (timeBtwAttack <= 0)
             {
-                anim.SetTrigger("Attack");
+                anim.SetTrigger("attack");
             }
             else
             {
