@@ -14,6 +14,12 @@ public class Player : MonoBehaviour
     private Animator anim;
 
     private bool facingRight = true;
+    private bool keyButtonPushed;
+
+    [Header("Key")]
+    public GameObject keyIcon;
+
+    
 
     // Start is called before the first frame update
     void Start()
@@ -58,5 +64,29 @@ public class Player : MonoBehaviour
     public void ChangeHealth(int healthValue)
     {
         health += healthValue;
+    }
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.CompareTag("Key"))
+        {
+            keyIcon.SetActive(true);
+            Destroy(other.gameObject);
+        }
+    }
+
+    public void onKeyButtonDown()
+    {
+        keyButtonPushed = !keyButtonPushed;
+    }
+
+    private void OnTriggerStay2D(Collider2D other)
+    {
+        if(other.CompareTag("Door") && keyButtonPushed && keyIcon.activeInHierarchy)
+        {
+            keyIcon.SetActive(false);
+            other.gameObject.SetActive(false);
+            keyButtonPushed = false;
+        }
     }
 }
