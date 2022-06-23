@@ -9,44 +9,65 @@ public class Enemy : MonoBehaviour
 
     private Animator anim;
     private Player player;
+    private AddRoom room;
 
     public GameObject destroyEffect;
 
     private float timeBtwAttack;
     public float startTimeBtwAttack;
     public float speed;
-    public float normalSpeed;
     public int health;
     public int damage;
+
+    [HideInInspector] public bool playerNotInRoom;
+
+    private bool stopped;
 
     // Start is called before the first frame update
     void Start()
     {
         anim = GetComponent<Animator>();
         player = FindObjectOfType<Player>();
-        normalSpeed = speed;
+        room = GetComponentInParent<AddRoom>();
+        stopped = false;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (stopTime <= 0)
-            speed = normalSpeed;
+        if (!playerNotInRoom)
+        {
+            if (stopTime <= 0)
+                stopped = false;
+            else
+            {
+                stopped = true;
+                stopTime -= Time.deltaTime;
+            }
+        }
         else
         {
-            speed = 0;
-            stopTime -= Time.deltaTime;
+            stopped = true;
+        }
+
+        if (room == null)
+        {
+            Debug.Log("Room is Null");//Попробуй присваивать комнату волкам при спавне
         }
 
         if (health <= 0)
+        {
+            room.enemies.Remove(gameObject);
             Destroy(gameObject);
+            
+        }
 
         if (player.transform.position.x > transform.position.x)
             transform.eulerAngles = new Vector3(0, 180, 0);
         else
             transform.eulerAngles = new Vector3(0, 0, 0);
-
-        transform.position = Vector2.MoveTowards(transform.position, player.transform.position, speed * Time.deltaTime);
+        if(!stopped)
+            transform.position = Vector2.MoveTowards(transform.position, player.transform.position, speed * Time.deltaTime);
     }
 
     public void TakeDamage(int damage)

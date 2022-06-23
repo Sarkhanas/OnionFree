@@ -31,11 +31,12 @@ public class AddRoom : MonoBehaviour
 
             foreach(Transform spawner in enemySpawner)
             {
-                int rand = Random.Range(0, 11);
+                int rand = Random.Range(0, 9);//до 11
                 if(rand < 9)
                 {
                     GameObject enemyType = enemyTypes[Random.Range(0, enemyTypes.Length)];
                     GameObject enemy = Instantiate(enemyType, spawner.position, Quaternion.identity) as GameObject;
+                    enemy.transform.SetParent(gameObject.transform);
                     enemies.Add(enemy);
                 } /*else if (rand == 9)
                 {
@@ -44,12 +45,18 @@ public class AddRoom : MonoBehaviour
                 {
                     Instantiate(shield, spawner.position, Quaternion.identity);
                 }*/
+            }           
+            StartCoroutine(CheckEnemies());
+        } else if (other.CompareTag("Player") && spawned)
+        {
+            foreach(GameObject enemy in enemies)
+            {
+                enemy.GetComponent<Enemy>().playerNotInRoom = false;
             }
-            StartCoroutine((IEnumerator)CheckEnemies());
         }
     }
 
-    IEnumerable CheckEnemies()
+    IEnumerator CheckEnemies()
     {
         yield return new WaitForSeconds(1f);
         yield return new WaitUntil(() => enemies.Count == 0);
@@ -73,6 +80,17 @@ public class AddRoom : MonoBehaviour
         if(wallsDestroyed && other.CompareTag("Wall"))
         {
             Destroy(other.gameObject);
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D other)
+    {
+        if (other.CompareTag("Player") && spawned)
+        {
+            foreach (GameObject enemy in enemies)
+            {
+                enemy.GetComponent<Enemy>().playerNotInRoom = true;
+            }
         }
     }
 }

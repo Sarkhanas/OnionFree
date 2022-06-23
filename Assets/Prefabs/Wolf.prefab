@@ -52,7 +52,7 @@ MonoBehaviour:
   startStopTime: 0.3
   destroyEffect: {fileID: 2984930678337600022, guid: c5b43db0564d8624c803c31f89447ceb, type: 3}
   startTimeBtwAttack: 1
-  speed: 3
+  speed: 1.5
   normalSpeed: 3
   health: 3
   damage: 1
