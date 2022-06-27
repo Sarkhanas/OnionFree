@@ -13,14 +13,20 @@ public class AddRoom : MonoBehaviour
     public Transform[] enemySpawner;
 
     [HideInInspector] public List<GameObject> enemies;
+    [HideInInspector] public bool isBossRoom;
 
     private RoomVariants variants;
     private bool spawned;
     private bool wallsDestroyed;
 
-    private void Start()
+    private void Awake()
     {
         variants = GameObject.FindGameObjectWithTag("Rooms").GetComponent<RoomVariants>();
+    }
+
+    private void Start()
+    {
+        variants.rooms.Add(gameObject);
     }
 
     private void OnTriggerEnter2D(Collider2D other)
@@ -29,23 +35,42 @@ public class AddRoom : MonoBehaviour
         {
             spawned = true;
 
-            foreach(Transform spawner in enemySpawner)
+            if (!isBossRoom)
             {
-                int rand = Random.Range(0, 9);//до 11
-                if(rand < 9)
+                foreach (Transform spawner in enemySpawner)
                 {
-                    GameObject enemyType = enemyTypes[Random.Range(0, enemyTypes.Length)];
-                    GameObject enemy = Instantiate(enemyType, spawner.position, Quaternion.identity) as GameObject;
-                    enemy.transform.SetParent(gameObject.transform);
-                    enemies.Add(enemy);
-                } /*else if (rand == 9)
+                    int rand = Random.Range(0, 9);//до 11
+                    if (rand < 9)
+                    {
+                        GameObject enemyType = enemyTypes[Random.Range(0, enemyTypes.Length)];
+                        GameObject enemy = Instantiate(enemyType, spawner.position, Quaternion.identity) as GameObject;
+                        enemy.transform.SetParent(gameObject.transform);
+                        enemies.Add(enemy);
+                    } /*else if (rand == 9)
                 {
                     Instantiate(healthPotion, spawner.position, Quaternion.identity);
                 } else if (rand == 10)
                 {
                     Instantiate(shield, spawner.position, Quaternion.identity);
                 }*/
-            }           
+                }
+            }
+            else
+            {
+                int rand = Random.Range(0, enemySpawner.Length);
+
+                GameObject enemy = Instantiate(enemyTypes[0], enemySpawner[rand].position, Quaternion.identity) as GameObject;
+
+                enemy.GetComponent<Enemy>().isBoss = true;
+                enemy.GetComponent<Enemy>().health *= 2;
+                enemy.GetComponent<Enemy>().speed = 1;
+                enemy.GetComponent<Enemy>().damage = 2;
+                enemy.transform.localScale = new Vector3((float)(gameObject.transform.localScale.x * 0.5), (float)(gameObject.transform.localScale.y * 0.5));
+
+                enemy.transform.SetParent(gameObject.transform);
+                enemies.Add(enemy);
+            }
+             
             StartCoroutine(CheckEnemies());
         } else if (other.CompareTag("Player") && spawned)
         {

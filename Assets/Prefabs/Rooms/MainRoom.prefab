@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 4635458740332052715}
   - component: {fileID: 3725425981048448582}
   - component: {fileID: 2742531687842169955}
-  - component: {fileID: -431773613670944085}
   m_Layer: 0
   m_Name: MainRoom
   m_TagString: Untagged
@@ -103,32 +102,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 12.165107, y: 8.210283}
   m_EdgeRadius: 0
---- !u!114 &-431773613670944085
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4635458740332052712}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9676e6248c6c3ed4dbb9a031125d99a1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  walls:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  door: {fileID: 0}
-  enemyTypes:
-  - {fileID: 273340086655374093, guid: a8d1e77405626f44c8c13302dadd8f1b, type: 3}
-  enemySpawner:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  enemies: []
 --- !u!1 &4635458740652115449
 GameObject:
   m_ObjectHideFlags: 0
@@ -3203,14 +3176,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9b504f31ca8c15345ac2b0c5899d017b, type: 3}
---- !u!1 &2512161297109831085 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6933712557198296413, guid: 9b504f31ca8c15345ac2b0c5899d017b, type: 3}
-  m_PrefabInstance: {fileID: 4820403795467897072}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &965658575516062058 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5729483546527979930, guid: 9b504f31ca8c15345ac2b0c5899d017b, type: 3}
+  m_PrefabInstance: {fileID: 4820403795467897072}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &2512161297109831085 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6933712557198296413, guid: 9b504f31ca8c15345ac2b0c5899d017b, type: 3}
   m_PrefabInstance: {fileID: 4820403795467897072}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &6049419867377960013

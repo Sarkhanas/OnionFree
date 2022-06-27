@@ -20,6 +20,7 @@ public class Enemy : MonoBehaviour
     public int damage;
 
     [HideInInspector] public bool playerNotInRoom;
+    [HideInInspector] public bool isBoss;
 
     private bool stopped;
 
