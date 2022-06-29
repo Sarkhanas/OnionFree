@@ -59,8 +59,9 @@ public class Enemy : MonoBehaviour
         if (health <= 0)
         {
             room.enemies.Remove(gameObject);
+            if (isBoss)
+                room.isBossDefeated = true;
             Destroy(gameObject);
-            
         }
 
         if (player.transform.position.x > transform.position.x)
