@@ -596,6 +596,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 5
   health: 10
+  healthDisplay: {fileID: 0}
+  level: {fileID: 0}
+  floor: {fileID: 0}
+  mainRoom: {fileID: 4635458740332052712, guid: 80c757d8e709af64fa63e6113f5072a2, type: 3}
+  Room: {fileID: 5915284762895144235, guid: 02fc3f768a678dc4da67845458fac14a, type: 3}
   keyIcon: {fileID: 0}
 --- !u!58 &1385051373715004294
 CircleCollider2D:
