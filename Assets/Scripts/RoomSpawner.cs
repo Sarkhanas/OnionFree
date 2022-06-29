@@ -1,6 +1,5 @@
 using System.Collections;
 using System.Collections.Generic;
-using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 
 public class RoomSpawner : MonoBehaviour
@@ -23,9 +22,9 @@ public class RoomSpawner : MonoBehaviour
 
     private void Start()
     {
-        variants = GameObject.FindGameObjectWithTag("Rooms").GetComponent<RoomVariants>();
-        Destroy(gameObject, waitTime);
+        variants = GameObject.FindGameObjectWithTag("Rooms").GetComponent<RoomVariants>();        
         Invoke("Spawn", 0.2f);
+        Destroy(gameObject, waitTime);
     }
 
     public void Spawn()
