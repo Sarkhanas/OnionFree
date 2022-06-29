@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: -1424408462381592986}
   m_Layer: 0
   m_Name: LeftRightBottom
-  m_TagString: Untagged
+  m_TagString: Room
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -99,6 +99,7 @@ MonoBehaviour:
   - {fileID: 9167969155320522588}
   - {fileID: 4242819375407531336}
   enemies: []
+  isBossRoom: 0
 --- !u!1 &4635458740652115449
 GameObject:
   m_ObjectHideFlags: 0
