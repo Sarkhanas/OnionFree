@@ -11,23 +11,29 @@ public class RoomVariants : MonoBehaviour
 
     public GameObject key;
 
+    private Player player;
+
     [HideInInspector] public List<GameObject> rooms;
 
     private void Start()
     {
         StartCoroutine(RandomSpawner());
+        player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
     }
 
     IEnumerator RandomSpawner()
     {
         yield return new WaitForSeconds(5f);
         AddRoom lastRoom = rooms[rooms.Count - 1].GetComponent<AddRoom>();
-        lastRoom.isBossRoom = true;
+        lastRoom.isLastRoom = true;
+        if (int.Parse(player.floor.text) == 3)
+            lastRoom.isBossRoom = true;
         int rand = Random.Range(0, rooms.Count - 2);
 
         Instantiate(key, rooms[rand].transform.position, Quaternion.identity);
 
         lastRoom.door.SetActive(true);
         lastRoom.DestroyWalls();
+        Destroy(gameObject);
     }
 }
