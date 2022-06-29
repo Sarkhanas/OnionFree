@@ -8,12 +8,17 @@ public class AddRoom : MonoBehaviour
     public GameObject[] walls;
     public GameObject door;
 
+    [Header("Walls")]
+    public GameObject portal;
+
     [Header("Enemies")]
     public GameObject[] enemyTypes;
     public Transform[] enemySpawner;
 
     [HideInInspector] public List<GameObject> enemies;
     [HideInInspector] public bool isBossRoom;
+    [HideInInspector] public bool isBossDefeated;
+    [HideInInspector] public bool isLastRoom;
 
     private RoomVariants variants;
     private bool spawned;
@@ -35,7 +40,7 @@ public class AddRoom : MonoBehaviour
         {
             spawned = true;
 
-            if (!isBossRoom)
+            if (!isBossRoom && gameObject.name != "MainRoom" && gameObject.name != "MainRoom(Clone)")
             {
                 foreach (Transform spawner in enemySpawner)
                 {
@@ -44,7 +49,7 @@ public class AddRoom : MonoBehaviour
                     {
                         GameObject enemyType = enemyTypes[Random.Range(0, enemyTypes.Length)];
                         GameObject enemy = Instantiate(enemyType, spawner.position, Quaternion.identity) as GameObject;
-                        enemy.transform.SetParent(gameObject.transform);
+                        enemy.transform.SetParent(gameObject.transform);                        
                         enemies.Add(enemy);
                     } /*else if (rand == 9)
                 {
@@ -55,7 +60,7 @@ public class AddRoom : MonoBehaviour
                 }*/
                 }
             }
-            else
+            else if (isBossRoom && gameObject.name != "MainRoom" && gameObject.name != "MainRoom(Clone)")
             {
                 int rand = Random.Range(0, enemySpawner.Length);
 
@@ -65,10 +70,15 @@ public class AddRoom : MonoBehaviour
                 enemy.GetComponent<Enemy>().health *= 2;
                 enemy.GetComponent<Enemy>().speed = 1;
                 enemy.GetComponent<Enemy>().damage = 2;
+                enemy.GetComponent<Enemy>().isBoss = true;
                 enemy.transform.localScale = new Vector3((float)(gameObject.transform.localScale.x * 0.5), (float)(gameObject.transform.localScale.y * 0.5));
 
                 enemy.transform.SetParent(gameObject.transform);
                 enemies.Add(enemy);
+            }
+            else
+            {
+                DestroyWalls();
             }
              
             StartCoroutine(CheckEnemies());
@@ -85,6 +95,8 @@ public class AddRoom : MonoBehaviour
     {
         yield return new WaitForSeconds(1f);
         yield return new WaitUntil(() => enemies.Count == 0);
+        if (isBossRoom && isBossDefeated || isLastRoom)
+            portal.SetActive(true);
         DestroyWalls();
     }
 
@@ -97,7 +109,7 @@ public class AddRoom : MonoBehaviour
                 Destroy(wall);
             }
         }
-        wallsDestroyed = true;
+        wallsDestroyed = true;        
     }
 
     private void OnTriggerStay2D(Collider2D other)
