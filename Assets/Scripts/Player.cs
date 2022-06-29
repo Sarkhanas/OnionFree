@@ -10,6 +10,8 @@ public class Player : MonoBehaviour
     public int health;
 
     public Text healthDisplay;
+    public Text level;
+    public Text floor;
 
     private Rigidbody2D rb;
     private Vector2 moveInput;
@@ -18,9 +20,19 @@ public class Player : MonoBehaviour
 
     private bool facingRight = true;
     private bool keyButtonPushed;
+    private int levelNum;
+    private int floorNum;
+    public GameObject mainRoom;
+    public GameObject Room;
+    public GameObject deadScreen;
+    public GameObject HUD;
+   
 
     [Header("Key")]
     public GameObject keyIcon;
+    
+    
+    /*public GameObject portalIcon;*/
 
     
 
@@ -29,11 +41,14 @@ public class Player : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
+        levelNum = int.Parse(level.text);
+        floorNum = int.Parse(floor.text);
     }
 
     // Update is called once per frame
     void Update()
     {
+        
         healthDisplay.text = health.ToString();
 
         moveInput = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
@@ -50,7 +65,10 @@ public class Player : MonoBehaviour
             Flip();
 
         if (health <= 0)
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        {
+            deadScreen.SetActive(true);
+            HUD.SetActive(false);
+        }            
     }
 
     private void FixedUpdate()
@@ -85,13 +103,46 @@ public class Player : MonoBehaviour
         keyButtonPushed = !keyButtonPushed;
     }
 
-    private void OnTriggerStay2D(Collider2D other)
+    /*public void onPortalBurronDown()
     {
-        if(other.CompareTag("Door") && keyButtonPushed && keyIcon.activeInHierarchy)
+        portalButtonPushed = !portalButtonPushed;
+    }*/
+
+    private void OnTriggerStay2D(Collider2D other)
+    {        
+        if (other.CompareTag("Door") && keyButtonPushed && keyIcon.activeInHierarchy)
         {
             keyIcon.SetActive(false);
             other.gameObject.SetActive(false);
             keyButtonPushed = false;
+        }
+
+        if (other.CompareTag("Portal"))
+        {
+            if (int.Parse(floor.text) < 3)
+            {
+                floorNum++;
+                floor.text = floorNum.ToString();
+            }
+            else
+            {
+                levelNum++;
+                level.text = levelNum.ToString();
+                floorNum = 1;
+                floor.text = floorNum.ToString();
+            }
+
+            if (level.text != "3")
+            {
+                GameObject[] rooms = GameObject.FindGameObjectsWithTag("Room");
+                foreach(var room in rooms)
+                {
+                    Destroy(room);
+                }
+                Instantiate(Room, Camera.main.GetComponent<Camera>().transform.position, Quaternion.identity);
+                Instantiate(mainRoom, Camera.main.GetComponent<Camera>().transform.position, Quaternion.identity);                
+                gameObject.transform.position = Camera.main.GetComponent<Camera>().transform.position;
+            }
         }
     }
 }
