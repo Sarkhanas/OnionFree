@@ -17,6 +17,7 @@ ScriptsOnlyBuild:
     - UnityEditor.U2D.Animation.BoneGizmo
     Unity.2D.IK.Editor.dll:
     - UnityEditor.U2D.IK.IKEditorManager
+    - UnityEditor.U2D.IK.IKGizmos
     Unity.2D.Tilemap.Editor.dll:
     - UnityEditor.Tilemaps.GridPaintingState
     - UnityEditor.Tilemaps.GridPaletteBrushes
@@ -68,17 +69,17 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 1454}
     - Class: 114
-      Script: {instanceID: 2258}
+      Script: {instanceID: 2266}
     - Class: 114
-      Script: {instanceID: 2690}
+      Script: {instanceID: 2698}
     - Class: 114
-      Script: {instanceID: 2862}
+      Script: {instanceID: 2872}
     - Class: 114
-      Script: {instanceID: 3104}
+      Script: {instanceID: 3114}
     - Class: 114
-      Script: {instanceID: 3354}
+      Script: {instanceID: 3364}
     - Class: 114
-      Script: {instanceID: 4242}
+      Script: {instanceID: 4252}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -133,35 +134,35 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 1676}
     - Class: 114
-      Script: {instanceID: 1870}
+      Script: {instanceID: 1872}
     - Class: 114
-      Script: {instanceID: 2258}
+      Script: {instanceID: 2266}
     - Class: 114
-      Script: {instanceID: 2690}
+      Script: {instanceID: 2698}
     - Class: 114
-      Script: {instanceID: 2862}
+      Script: {instanceID: 2872}
     - Class: 114
-      Script: {instanceID: 2876}
+      Script: {instanceID: 2886}
     - Class: 114
-      Script: {instanceID: 2902}
+      Script: {instanceID: 2912}
     - Class: 114
-      Script: {instanceID: 2940}
+      Script: {instanceID: 2950}
     - Class: 114
-      Script: {instanceID: 3104}
+      Script: {instanceID: 3114}
     - Class: 114
-      Script: {instanceID: 3232}
+      Script: {instanceID: 3242}
     - Class: 114
-      Script: {instanceID: 3342}
+      Script: {instanceID: 3352}
     - Class: 114
-      Script: {instanceID: 3354}
+      Script: {instanceID: 3364}
     - Class: 114
-      Script: {instanceID: 3854}
+      Script: {instanceID: 3864}
     - Class: 114
-      Script: {instanceID: 4184}
+      Script: {instanceID: 4194}
     - Class: 114
-      Script: {instanceID: 5018}
+      Script: {instanceID: 5030}
     - Class: 114
-      Script: {instanceID: 5240}
+      Script: {instanceID: 5254}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -283,12 +284,6 @@ ScriptsOnlyBuild:
     className: RoomSpawner
   - hash:
       serializedVersion: 2
-      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: 
-    className: Bi
-  - hash:
-      serializedVersion: 2
       Hash: c3d3430df9e3ea95e3e3d587961390fb
     assemblyName: Unity.Timeline.dll
     namespaceName: UnityEngine.Timeline
@@ -379,7 +374,7 @@ ScriptsOnlyBuild:
     className: TimelineAsset
   - hash:
       serializedVersion: 2
-      Hash: f2a1c2bd2c7ab2f2262074663db080fe
+      Hash: 7022448623e5ab9a0d793ef171d85b98
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: AddRoom
@@ -391,7 +386,7 @@ ScriptsOnlyBuild:
     className: TextMeshProUGUI
   - hash:
       serializedVersion: 2
-      Hash: fe66e09f5e4697cb10485fbe4a6f779d
+      Hash: 3b1a6b2f4b833a09d2af679d4500f846
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: Player
@@ -643,12 +638,6 @@ ScriptsOnlyBuild:
     className: SpriteShapeGeometryCache
   - hash:
       serializedVersion: 2
-      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: 
-    className: Portal
-  - hash:
-      serializedVersion: 2
       Hash: b424b4eeb810aecb0ff91c62639241e9
     assemblyName: Unity.2D.Animation.Runtime.dll
     namespaceName: UnityEngine.Experimental.U2D.Animation
@@ -701,12 +690,6 @@ ScriptsOnlyBuild:
     assemblyName: Unity.TextMeshPro.dll
     namespaceName: TMPro
     className: TMP_Settings
-  - hash:
-      serializedVersion: 2
-      Hash: 428f2bf10b0f5eb745272d8bee0bace2
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: 
-    className: Boss
   - hash:
       serializedVersion: 2
       Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
@@ -795,4 +778,4 @@ ScriptsOnlyBuild:
   scenePathNames:
   - Assets/Scenes/MainMenu.unity
   - Assets/Scenes/SampleScene.unity
-  playerPath: D:/Daniil/OnionFree(Demo)/OnionFree.exe
+  playerPath: "L:/\u0414\u0430\u043D\u0438\u0438\u043B/OnionFree(DEMO)/OnionFree.exe"

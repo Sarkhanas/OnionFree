@@ -88,8 +88,10 @@ MonoBehaviour:
   - {fileID: 2336536975225809787}
   - {fileID: 2336536975157217999}
   door: {fileID: 0}
+  portal: {fileID: 0}
   enemyTypes:
   - {fileID: 273340086655374093, guid: a8d1e77405626f44c8c13302dadd8f1b, type: 3}
+  healthPotion: {fileID: 2628286513589801516, guid: 5570b9cbac43da14a80dd0aa03142af5, type: 3}
   enemySpawner:
   - {fileID: 6059905589194271230}
   - {fileID: 430624074901276256}
@@ -97,6 +99,8 @@ MonoBehaviour:
   - {fileID: 3755596201418006321}
   enemies: []
   isBossRoom: 0
+  isBossDefeated: 0
+  isLastRoom: 0
 --- !u!1 &4635458740652115449
 GameObject:
   m_ObjectHideFlags: 0

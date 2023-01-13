@@ -6,6 +6,14 @@ public class Wall : MonoBehaviour
 {
     public GameObject block;
 
+    public Wall Wall1
+    {
+        get => default;
+        set
+        {
+        }
+    }
+
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.CompareTag("Block"))

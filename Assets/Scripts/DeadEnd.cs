@@ -5,6 +5,14 @@ using UnityEngine.SceneManagement;
 
 public class DeadEnd : MonoBehaviour
 {
+    public MainMenu MainMenu
+    {
+        get => default;
+        set
+        {
+        }
+    }
+
     private void Update()
     {
         Time.timeScale = 0f;
@@ -14,5 +22,11 @@ public class DeadEnd : MonoBehaviour
     {
         Time.timeScale = 1f;
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);
+    }
+
+    public void Restart()
+    {
+        Time.timeScale = 1f;
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 }

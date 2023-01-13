@@ -24,6 +24,22 @@ public class Enemy : MonoBehaviour
 
     private bool stopped;
 
+    public Player Player
+    {
+        get => default;
+        set
+        {
+        }
+    }
+
+    public AddRoom AddRoom
+    {
+        get => default;
+        set
+        {
+        }
+    }
+
     // Start is called before the first frame update
     void Start()
     {

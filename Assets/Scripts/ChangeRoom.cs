@@ -8,6 +8,14 @@ public class ChangeRoom : MonoBehaviour
     public Vector3 playerChangePos;
     private Camera cam;
 
+    public Player Player
+    {
+        get => default;
+        set
+        {
+        }
+    }
+
     private void Start()
     {
         cam = Camera.main.GetComponent<Camera>();

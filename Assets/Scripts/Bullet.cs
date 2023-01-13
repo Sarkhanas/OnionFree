@@ -14,6 +14,22 @@ public class Bullet : MonoBehaviour
 
     [SerializeField] bool enemyBullet;
 
+    public Gun Gun
+    {
+        get => default;
+        set
+        {
+        }
+    }
+
+    public Enemy Enemy
+    {
+        get => default;
+        set
+        {
+        }
+    }
+
     private void Start()
     {
         Invoke("DestroyBullet", lifetime);

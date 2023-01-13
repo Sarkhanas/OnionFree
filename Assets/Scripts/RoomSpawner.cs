@@ -60,4 +60,20 @@ public class RoomSpawner : MonoBehaviour
             Destroy(gameObject);
         }
     }
+
+    public AddRoom AddRoom
+    {
+        get => default;
+        set
+        {
+        }
+    }
+
+    public RoomVariants RoomVariants
+    {
+        get => default;
+        set
+        {
+        }
+    }
 }

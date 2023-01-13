@@ -13,6 +13,7 @@ public class AddRoom : MonoBehaviour
 
     [Header("Enemies")]
     public GameObject[] enemyTypes;
+    public GameObject healthPotion;
     public Transform[] enemySpawner;
 
     [HideInInspector] public List<GameObject> enemies;
@@ -23,6 +24,30 @@ public class AddRoom : MonoBehaviour
     private RoomVariants variants;
     private bool spawned;
     private bool wallsDestroyed;
+
+    public RoomVariants RoomVariants
+    {
+        get => default;
+        set
+        {
+        }
+    }
+
+    public Player Player
+    {
+        get => default;
+        set
+        {
+        }
+    }
+
+    public Enemy Enemy
+    {
+        get => default;
+        set
+        {
+        }
+    }
 
     private void Awake()
     {
@@ -44,20 +69,22 @@ public class AddRoom : MonoBehaviour
             {
                 foreach (Transform spawner in enemySpawner)
                 {
-                    int rand = Random.Range(0, 9);//до 11
+                    int rand = Random.Range(0, 10);//до 11
                     if (rand < 9)
                     {
                         GameObject enemyType = enemyTypes[Random.Range(0, enemyTypes.Length)];
                         GameObject enemy = Instantiate(enemyType, spawner.position, Quaternion.identity) as GameObject;
                         enemy.transform.SetParent(gameObject.transform);                        
                         enemies.Add(enemy);
-                    } /*else if (rand == 9)
-                {
-                    Instantiate(healthPotion, spawner.position, Quaternion.identity);
-                } else if (rand == 10)
-                {
-                    Instantiate(shield, spawner.position, Quaternion.identity);
-                }*/
+                    }
+                    else if (rand == 9)
+                    {
+                        Instantiate(healthPotion, spawner.position, Quaternion.identity);
+                    }
+                    /*else if (rand == 10)
+                    {
+                        Instantiate(shield, spawner.position, Quaternion.identity);
+                    }*/
                 }
             }
             else if (isBossRoom && gameObject.name != "MainRoom" && gameObject.name != "MainRoom(Clone)")

@@ -56,4 +56,12 @@ public class Gun : MonoBehaviour
         Instantiate(bullet, shotPoint.position, shotPoint.rotation);
         timeBtwShots = startTimeBtwShots;
     }
+
+    public Player Player
+    {
+        get => default;
+        set
+        {
+        }
+    }
 }

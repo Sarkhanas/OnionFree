@@ -8,6 +8,7 @@ public class Player : MonoBehaviour
 {
     public float speed;
     public int health;
+    public int maxHealth;
 
     public Text healthDisplay;
     public Text level;
@@ -30,11 +31,35 @@ public class Player : MonoBehaviour
 
     [Header("Key")]
     public GameObject keyIcon;
-    
-    
+
+    public RoomVariants RoomVariants
+    {
+        get => default;
+        set
+        {
+        }
+    }
+
+    public PauseMenu PauseMenu
+    {
+        get => default;
+        set
+        {
+        }
+    }
+
+    public DeadEnd DeadEnd
+    {
+        get => default;
+        set
+        {
+        }
+    }
+
+
     /*public GameObject portalIcon;*/
 
-    
+
 
     // Start is called before the first frame update
     void Start()
@@ -43,6 +68,7 @@ public class Player : MonoBehaviour
         anim = GetComponent<Animator>();
         levelNum = int.Parse(level.text);
         floorNum = int.Parse(floor.text);
+        Time.timeScale = 1f;
     }
 
     // Update is called once per frame
@@ -95,6 +121,15 @@ public class Player : MonoBehaviour
         {
             keyIcon.SetActive(true);
             Destroy(other.gameObject);
+        }
+
+        if (other.CompareTag("Heal"))
+        {
+            if (health < maxHealth)
+            {
+                ChangeHealth(3);
+                Destroy(other.gameObject);
+            }
         }
     }
 
