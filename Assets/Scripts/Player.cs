@@ -6,6 +6,8 @@ using UnityEngine.UI;
 
 public class Player : MonoBehaviour
 {
+    private CircleCollider2D controller;
+
     public float speed;
     public int health;
     public int maxHealth;
@@ -27,10 +29,17 @@ public class Player : MonoBehaviour
     public GameObject Room;
     public GameObject deadScreen;
     public GameObject HUD;
-   
+
 
     [Header("Key")]
     public GameObject keyIcon;
+
+    [Header("Controls")]
+    public KeyCode up;
+    public KeyCode down;
+    public KeyCode left;
+    public KeyCode right;
+    private bool isControlsChanged = false;
 
     public RoomVariants RoomVariants
     {
@@ -59,11 +68,34 @@ public class Player : MonoBehaviour
 
     /*public GameObject portalIcon;*/
 
-
-
     // Start is called before the first frame update
     void Start()
     {
+        controller = GetComponent<CircleCollider2D>();
+
+        if (PlayerPrefs.GetInt("OptionsChanged") == 0)
+            isControlsChanged = false;
+        else
+            isControlsChanged = true;
+
+        PlayerPrefs.SetInt("defUp", (int)KeyCode.W);
+        PlayerPrefs.SetInt("defDown", (int)KeyCode.S);
+        PlayerPrefs.SetInt("defLeft", (int)KeyCode.A);
+        PlayerPrefs.SetInt("defRight", (int)KeyCode.D);
+
+        if (!isControlsChanged)
+        {
+            PlayerPrefs.SetInt("up", PlayerPrefs.GetInt("defUp"));
+            PlayerPrefs.SetInt("down", PlayerPrefs.GetInt("defDown"));
+            PlayerPrefs.SetInt("left", PlayerPrefs.GetInt("defLeft"));
+            PlayerPrefs.SetInt("right", PlayerPrefs.GetInt("defRight"));
+        }
+
+        up = (KeyCode)PlayerPrefs.GetInt("up");
+        down = (KeyCode)PlayerPrefs.GetInt("down");
+        left = (KeyCode)PlayerPrefs.GetInt("left");
+        right = (KeyCode)PlayerPrefs.GetInt("right");
+
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
         levelNum = int.Parse(level.text);
@@ -74,21 +106,53 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
         healthDisplay.text = health.ToString();
 
-        moveInput = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
-        moveVelocity = moveInput.normalized * speed;
+        if (controller.isActiveAndEnabled)
+        {
+            int hor;
+            int ver;
 
-        if(moveInput.x == 0)
+            if (Input.GetKey(up))
+            {
+                hor = 1;
+            } else if (Input.GetKey(down))
+            {
+                hor = -1;
+            } else
+            {
+                hor = 0;
+            }
+
+            if (Input.GetKey(right))
+            {
+                ver = 1;
+            }
+            else if (Input.GetKey(left))
+            {
+                ver = -1;
+            }
+            else
+            {
+                ver = 0;
+            }
+
+            moveInput = new Vector2(ver, hor);
+            moveVelocity = moveInput.normalized * speed;
+
+            if(moveInput.x == 0)
             anim.SetBool("isRunning", false);
-        else
-            anim.SetBool("isRunning", true);
+            else
+                anim.SetBool("isRunning", true);
 
-        if (!facingRight && moveInput.x>0)
-            Flip();
-        else if(facingRight && moveInput.x<0)
-            Flip();
+            if (!facingRight && moveInput.x>0)
+                Flip();
+            else if(facingRight && moveInput.x<0)
+                Flip();
+        }
+
+       
 
         if (health <= 0)
         {

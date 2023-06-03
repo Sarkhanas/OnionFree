@@ -605,6 +605,10 @@ MonoBehaviour:
   deadScreen: {fileID: 0}
   HUD: {fileID: 0}
   keyIcon: {fileID: 0}
+  up: 119
+  down: 115
+  left: 97
+  right: 100
 --- !u!58 &1385051373715004294
 CircleCollider2D:
   m_ObjectHideFlags: 0
