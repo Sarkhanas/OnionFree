@@ -58,6 +58,7 @@
   <ItemGroup>
     <Compile Include="Assets\Scripts\ChangeRoom.cs" />
     <Compile Include="Assets\Scripts\RoomSpawner.cs" />
+    <Compile Include="Assets\Scripts\Upgrade.cs" />
     <Compile Include="Assets\Scripts\Wall.cs" />
     <Compile Include="Assets\Scripts\AddRoom.cs" />
     <Compile Include="Assets\Scripts\Player.cs" />
@@ -66,10 +67,10 @@
     <Compile Include="Assets\Scripts\Gun.cs" />
     <Compile Include="Assets\Scripts\RoomVariants.cs" />
     <Compile Include="Assets\Scripts\MainMenu.cs" />
-    <Compile Include="Assets\Scripts\DeadEnd.cs" />
-    <Compile Include="Assets\Scripts\Bullet.cs" />
     <Compile Include="Assets\Scripts\options.cs" />
     <Compile Include="Assets\Scripts\InputComponent.cs" />
+    <Compile Include="Assets\Scripts\DeadEnd.cs" />
+    <Compile Include="Assets\Scripts\Bullet.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Scripts\ClassDiagram1.cd" />

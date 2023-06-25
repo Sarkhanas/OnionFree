@@ -145,6 +145,11 @@ public class AddRoom : MonoBehaviour
         {
             Destroy(other.gameObject);
         }
+        if (other.CompareTag("Room"))
+        {
+            Destroy(other.gameObject);
+            Debug.Log("Комната уничтожена");
+        }
     }
 
     private void OnTriggerExit2D(Collider2D other)

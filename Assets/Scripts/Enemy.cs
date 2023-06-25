@@ -76,7 +76,13 @@ public class Enemy : MonoBehaviour
         {
             room.enemies.Remove(gameObject);
             if (isBoss)
+            { 
                 room.isBossDefeated = true;
+                player.ChangePoints(25);
+            } else
+            {
+                player.ChangePoints(5);
+            }
             Destroy(gameObject);
         }
 

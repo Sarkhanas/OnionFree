@@ -32,6 +32,7 @@ public class Bullet : MonoBehaviour
 
     private void Start()
     {
+        damage = PlayerPrefs.GetInt("damage");
         Invoke("DestroyBullet", lifetime);
     }
 

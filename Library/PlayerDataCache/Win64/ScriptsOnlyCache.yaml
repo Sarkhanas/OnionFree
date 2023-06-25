@@ -7,17 +7,19 @@ ScriptsOnlyBuild:
     - DeadEnd
     - Enemy
     - Gun
+    - InputComponent
     - MainMenu
     - PauseMenu
     - Player
     - RoomSpawner
     - RoomVariants
+    - Upgrade
     - Wall
+    - options
     Unity.2D.Animation.Editor.dll:
     - UnityEditor.U2D.Animation.BoneGizmo
     Unity.2D.IK.Editor.dll:
     - UnityEditor.U2D.IK.IKEditorManager
-    - UnityEditor.U2D.IK.IKGizmos
     Unity.2D.Tilemap.Editor.dll:
     - UnityEditor.Tilemaps.GridPaintingState
     - UnityEditor.Tilemaps.GridPaletteBrushes
@@ -69,17 +71,21 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 1454}
     - Class: 114
-      Script: {instanceID: 2266}
+      Script: {instanceID: 2268}
     - Class: 114
-      Script: {instanceID: 2698}
+      Script: {instanceID: 2700}
     - Class: 114
-      Script: {instanceID: 2872}
+      Script: {instanceID: 2874}
     - Class: 114
-      Script: {instanceID: 3114}
+      Script: {instanceID: 3116}
     - Class: 114
-      Script: {instanceID: 3364}
+      Script: {instanceID: 3366}
     - Class: 114
-      Script: {instanceID: 4252}
+      Script: {instanceID: 4254}
+    - Class: 114
+      Script: {instanceID: 4528}
+    - Class: 114
+      Script: {instanceID: 4536}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -136,33 +142,33 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 1872}
     - Class: 114
-      Script: {instanceID: 2266}
+      Script: {instanceID: 2268}
     - Class: 114
-      Script: {instanceID: 2698}
+      Script: {instanceID: 2700}
     - Class: 114
-      Script: {instanceID: 2872}
+      Script: {instanceID: 2874}
     - Class: 114
-      Script: {instanceID: 2886}
+      Script: {instanceID: 2888}
     - Class: 114
-      Script: {instanceID: 2912}
+      Script: {instanceID: 2914}
     - Class: 114
-      Script: {instanceID: 2950}
+      Script: {instanceID: 2952}
     - Class: 114
-      Script: {instanceID: 3114}
+      Script: {instanceID: 3116}
     - Class: 114
-      Script: {instanceID: 3242}
+      Script: {instanceID: 3244}
     - Class: 114
-      Script: {instanceID: 3352}
+      Script: {instanceID: 3354}
     - Class: 114
-      Script: {instanceID: 3364}
+      Script: {instanceID: 3366}
     - Class: 114
-      Script: {instanceID: 3864}
+      Script: {instanceID: 3866}
     - Class: 114
-      Script: {instanceID: 4194}
+      Script: {instanceID: 4196}
     - Class: 114
-      Script: {instanceID: 5030}
+      Script: {instanceID: 5036}
     - Class: 114
-      Script: {instanceID: 5254}
+      Script: {instanceID: 5260}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -174,6 +180,57 @@ ScriptsOnlyBuild:
     - Class: 198
       Script: {instanceID: 0}
     - Class: 199
+      Script: {instanceID: 0}
+    - Class: 212
+      Script: {instanceID: 0}
+    - Class: 213
+      Script: {instanceID: 0}
+    - Class: 222
+      Script: {instanceID: 0}
+    - Class: 223
+      Script: {instanceID: 0}
+    - Class: 224
+      Script: {instanceID: 0}
+    Assets/Scenes/Upgrade.unity:
+    - Class: 1
+      Script: {instanceID: 0}
+    - Class: 4
+      Script: {instanceID: 0}
+    - Class: 20
+      Script: {instanceID: 0}
+    - Class: 21
+      Script: {instanceID: 0}
+    - Class: 28
+      Script: {instanceID: 0}
+    - Class: 48
+      Script: {instanceID: 0}
+    - Class: 81
+      Script: {instanceID: 0}
+    - Class: 104
+      Script: {instanceID: 0}
+    - Class: 114
+      Script: {instanceID: 1452}
+    - Class: 114
+      Script: {instanceID: 1454}
+    - Class: 114
+      Script: {instanceID: 2008}
+    - Class: 114
+      Script: {instanceID: 2268}
+    - Class: 114
+      Script: {instanceID: 2700}
+    - Class: 114
+      Script: {instanceID: 2874}
+    - Class: 114
+      Script: {instanceID: 3116}
+    - Class: 114
+      Script: {instanceID: 3366}
+    - Class: 115
+      Script: {instanceID: 0}
+    - Class: 128
+      Script: {instanceID: 0}
+    - Class: 157
+      Script: {instanceID: 0}
+    - Class: 196
       Script: {instanceID: 0}
     - Class: 212
       Script: {instanceID: 0}
@@ -284,6 +341,12 @@ ScriptsOnlyBuild:
     className: RoomSpawner
   - hash:
       serializedVersion: 2
+      Hash: 773426b48fda11a70bf73c16fd78eeac
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: Upgrade
+  - hash:
+      serializedVersion: 2
       Hash: c3d3430df9e3ea95e3e3d587961390fb
     assemblyName: Unity.Timeline.dll
     namespaceName: UnityEngine.Timeline
@@ -386,7 +449,7 @@ ScriptsOnlyBuild:
     className: TextMeshProUGUI
   - hash:
       serializedVersion: 2
-      Hash: 3b1a6b2f4b833a09d2af679d4500f846
+      Hash: ae1f5bd8ff8d892f67cda23de2165438
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: Player
@@ -626,6 +689,18 @@ ScriptsOnlyBuild:
     className: SignalTrack
   - hash:
       serializedVersion: 2
+      Hash: bcfbb2665c921e1a02de42d682cbb0d0
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: options
+  - hash:
+      serializedVersion: 2
+      Hash: 87b4dc1c70dcc7147fb0b989980b00cc
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: InputComponent
+  - hash:
+      serializedVersion: 2
       Hash: aba7b2852ef61d175dd9602e7723d5e5
     assemblyName: UnityEngine.UI.dll
     namespaceName: UnityEngine.UI
@@ -778,4 +853,5 @@ ScriptsOnlyBuild:
   scenePathNames:
   - Assets/Scenes/MainMenu.unity
   - Assets/Scenes/SampleScene.unity
+  - Assets/Scenes/Upgrade.unity
   playerPath: "L:/\u0414\u0430\u043D\u0438\u0438\u043B/OnionFree(DEMO)/OnionFree.exe"

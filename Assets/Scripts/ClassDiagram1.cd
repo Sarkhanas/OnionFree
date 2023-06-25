@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ClassDiagram MajorVersion="1" MinorVersion="1">
   <Class Name="AddRoom">
-    <Position X="6" Y="1.75" Width="1.5" />
+    <Position X="11.25" Y="4.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AJAgAgGAACBwAAAAEAAAAAAAAEAAIAABAYEAAQBAgMA=</HashCode>
       <FileName>Assets\Scripts\AddRoom.cs</FileName>
@@ -13,7 +13,7 @@
     </ShowAsAssociation>
   </Class>
   <Class Name="Bullet">
-    <Position X="6.5" Y="10.5" Width="1.5" />
+    <Position X="13" Y="16" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AMQAAgAAACAAgAACAAAAAAAAAEAAAQAAAQAAAABBAAA=</HashCode>
       <FileName>Assets\Scripts\Bullet.cs</FileName>
@@ -24,7 +24,7 @@
     </ShowAsAssociation>
   </Class>
   <Class Name="ChangeRoom">
-    <Position X="6.5" Y="7.25" Width="1.5" />
+    <Position X="11.25" Y="13.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAABAAAECAAAAAAAAAAAAAAAEAAAAAAAAAAAQAgAAA=</HashCode>
       <FileName>Assets\Scripts\ChangeRoom.cs</FileName>
@@ -34,9 +34,9 @@
     </ShowAsAssociation>
   </Class>
   <Class Name="DeadEnd">
-    <Position X="0.5" Y="4.25" Width="1.5" />
+    <Position X="11.25" Y="10.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAQAAAAAAAAAAAAAAAAAAAAQAAAAAAAgAAAAAAAAAAA=</HashCode>
+      <HashCode>EAQAAAAAAAAAAAAAAAAAAAAQAAAAAAAgAAAAAAAAAAA=</HashCode>
       <FileName>Assets\Scripts\DeadEnd.cs</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>
@@ -44,7 +44,7 @@
     </ShowAsAssociation>
   </Class>
   <Class Name="Enemy">
-    <Position X="11.25" Y="1.75" Width="1.5" />
+    <Position X="19.75" Y="8.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAQAAQBAACBAgACCAAgAABQQAABAAQABAQABgQABAAg=</HashCode>
       <FileName>Assets\Scripts\Enemy.cs</FileName>
@@ -55,7 +55,7 @@
     </ShowAsAssociation>
   </Class>
   <Class Name="Gun">
-    <Position X="11" Y="8.25" Width="1.5" />
+    <Position X="15.25" Y="14.5" Width="1.5" />
     <NestedTypes>
       <Enum Name="Gun.GunType" Collapsed="true">
         <TypeIdentifier>
@@ -72,7 +72,7 @@
     </ShowAsAssociation>
   </Class>
   <Class Name="MainMenu">
-    <Position X="0.5" Y="1.75" Width="1.5" />
+    <Position X="9" Y="9.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAQAAAEAABAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Assets\Scripts\MainMenu.cs</FileName>
@@ -84,7 +84,7 @@
   <Class Name="PauseMenu">
     <Position X="13.25" Y="8.25" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>ABQgAAAAAAAAAAAAAAAAAAAQAAAAAAAgAAAAAAgAIAA=</HashCode>
+      <HashCode>EBQgAAAAAAAAAAAAAAAAAAAQAAAAAAAgAAAAAAgAIAA=</HashCode>
       <FileName>Assets\Scripts\PauseMenu.cs</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>
@@ -92,9 +92,9 @@
     </ShowAsAssociation>
   </Class>
   <Class Name="Player">
-    <Position X="8.5" Y="4.5" Width="1.5" />
+    <Position X="15.5" Y="5.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAQgAEAAIyBAQACEABAIAgFgAGEACQAAAQgAAIQBAAg=</HashCode>
+      <HashCode>EAQgAEAIIyBCQAGEABAIAgFgAGEICQAAAQwAApQBgAg=</HashCode>
       <FileName>Assets\Scripts\Player.cs</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>
@@ -104,7 +104,7 @@
     </ShowAsAssociation>
   </Class>
   <Class Name="RoomSpawner">
-    <Position X="3.25" Y="1.75" Width="1.5" />
+    <Position X="6" Y="5.25" Width="1.5" />
     <Compartments>
       <Compartment Name="Nested Types" Collapsed="false" />
     </Compartments>
@@ -125,20 +125,30 @@
     </ShowAsAssociation>
   </Class>
   <Class Name="RoomVariants">
-    <Position X="0.5" Y="7.5" Width="1.5" />
+    <Position X="7" Y="11.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>EAAAAAAAACAAEAAAAAIEAAACAAAAIAQBAAAAAAAAAAA=</HashCode>
       <FileName>Assets\Scripts\RoomVariants.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Wall">
-    <Position X="3.25" Y="10.5" Width="1.5" />
+    <Position X="11.25" Y="16.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAABAAAAAAAAAAIAAAEAAAAAAAAAAAAAABAA=</HashCode>
       <FileName>Assets\Scripts\Wall.cs</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>
       <Property Name="Wall1" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="Upgrade">
+    <Position X="4.25" Y="5.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQDAACCAyAgAAAAAnEIAgAAABQIAAAAAQgAAAAAAII=</HashCode>
+      <FileName>Assets\Scripts\Upgrade.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Upgrade1" />
     </ShowAsAssociation>
   </Class>
   <Font Name="Segoe UI" Size="9" />

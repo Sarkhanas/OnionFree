@@ -10,7 +10,10 @@ public class Player : MonoBehaviour
 
     public float speed;
     public int health;
+    public int armor = 0;
     public int maxHealth;
+
+    public int upPoints = 0;
 
     public Text healthDisplay;
     public Text level;
@@ -71,12 +74,32 @@ public class Player : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        if (PlayerPrefs.GetInt("maxHealth") <= maxHealth)
+        {
+            PlayerPrefs.SetInt("maxHealth", maxHealth);
+        }
+
+        health = maxHealth;
+
         controller = GetComponent<CircleCollider2D>();
 
         if (PlayerPrefs.GetInt("OptionsChanged") == 0)
             isControlsChanged = false;
         else
             isControlsChanged = true;
+
+        if (PlayerPrefs.GetInt("armor") == PlayerPrefs.GetInt("defArmor"))
+            armor = PlayerPrefs.GetInt("defArmor");
+        else
+            armor = PlayerPrefs.GetInt("armor");
+
+        upPoints = PlayerPrefs.GetInt("points") != 0 || PlayerPrefs.GetInt("points") != null ? PlayerPrefs.GetInt("points") : 0;
+
+
+        PlayerPrefs.SetInt("defDamage", 1);
+
+        if (PlayerPrefs.GetInt("damage") <= PlayerPrefs.GetInt("defDamage"))
+            PlayerPrefs.SetInt("damage", PlayerPrefs.GetInt("defDamage"));
 
         PlayerPrefs.SetInt("defUp", (int)KeyCode.W);
         PlayerPrefs.SetInt("defDown", (int)KeyCode.S);
@@ -176,7 +199,31 @@ public class Player : MonoBehaviour
 
     public void ChangeHealth(int healthValue)
     {
-        health += healthValue;
+        
+        if (healthValue < 0)
+        {
+            if (healthValue * -1 - armor <= 0)
+                health += 0;
+            else
+                health += (healthValue + armor);
+            Debug.Log("Отнимаем здоровье: " + healthValue);
+        }
+        else
+        {
+            health += healthValue;
+            Debug.Log("Добавляем здоровье: " + healthValue);
+        }
+
+        //health += healthValue + (healthValue < 0 ? (healthValue >= armor ? armor : healthValue) : 0);
+
+        if (health > maxHealth)
+            health = maxHealth;
+    }
+
+    public void ChangePoints(int points)
+    {
+        upPoints += points;
+        PlayerPrefs.SetInt("points", upPoints);
     }
 
     private void OnTriggerEnter2D(Collider2D other)
