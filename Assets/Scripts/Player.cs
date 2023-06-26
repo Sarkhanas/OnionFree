@@ -105,6 +105,7 @@ public class Player : MonoBehaviour
         PlayerPrefs.SetInt("defDown", (int)KeyCode.S);
         PlayerPrefs.SetInt("defLeft", (int)KeyCode.A);
         PlayerPrefs.SetInt("defRight", (int)KeyCode.D);
+        PlayerPrefs.SetInt("lastScene", SceneManager.GetActiveScene().buildIndex - 1 == 0 ? 1 : SceneManager.GetActiveScene().buildIndex);
 
         if (!isControlsChanged)
         {
@@ -288,6 +289,26 @@ public class Player : MonoBehaviour
                 Instantiate(Room, Camera.main.GetComponent<Camera>().transform.position, Quaternion.identity);
                 Instantiate(mainRoom, Camera.main.GetComponent<Camera>().transform.position, Quaternion.identity);                
                 gameObject.transform.position = Camera.main.GetComponent<Camera>().transform.position;
+            } else
+            {
+
+                bool[] secretChance = new bool[] {false, false, false, false , false, false, true, false, false, false };
+                bool chance = secretChance[Random.Range(0, secretChance.Length)];
+
+                if (SceneManager.GetActiveScene().buildIndex != 4)
+                    if (chance && SceneManager.GetActiveScene().buildIndex != 5)
+                    {
+                        SceneManager.LoadScene(5);
+                    }
+                    else
+                    {
+                        if (PlayerPrefs.GetInt("lastScene") == 5)
+                            SceneManager.LoadScene(PlayerPrefs.GetInt("lastScene") + 1);
+                        else
+                            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+                    }
+                else
+                    SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
             }
         }
     }
