@@ -91,6 +91,7 @@ MonoBehaviour:
   portal: {fileID: 0}
   enemyTypes:
   - {fileID: 273340086655374093, guid: a8d1e77405626f44c8c13302dadd8f1b, type: 3}
+  - {fileID: 2331126140930611347, guid: cbbffc85dcb1bba4c91b29df7bcb1dff, type: 3}
   healthPotion: {fileID: 2628286513589801516, guid: 5570b9cbac43da14a80dd0aa03142af5, type: 3}
   enemySpawner:
   - {fileID: 3468490306790589858}
