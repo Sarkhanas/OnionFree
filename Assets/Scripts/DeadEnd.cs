@@ -21,7 +21,7 @@ public class DeadEnd : MonoBehaviour
     public void LoadMenu()
     {
         Time.timeScale = 1f;
-        SceneManager.LoadScene(0);
+        SceneManager.LoadScene(4);
     }
 
     public void Restart()

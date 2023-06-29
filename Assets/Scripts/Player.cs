@@ -74,9 +74,13 @@ public class Player : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+
         if (PlayerPrefs.GetInt("maxHealth") <= maxHealth)
         {
             PlayerPrefs.SetInt("maxHealth", maxHealth);
+        } else
+        {
+            maxHealth = PlayerPrefs.GetInt("maxHealth");
         }
 
         health = maxHealth;
@@ -105,7 +109,7 @@ public class Player : MonoBehaviour
         PlayerPrefs.SetInt("defDown", (int)KeyCode.S);
         PlayerPrefs.SetInt("defLeft", (int)KeyCode.A);
         PlayerPrefs.SetInt("defRight", (int)KeyCode.D);
-        PlayerPrefs.SetInt("lastScene", SceneManager.GetActiveScene().buildIndex - 1 == 0 ? 1 : SceneManager.GetActiveScene().buildIndex);
+        
 
         if (!isControlsChanged)
         {
@@ -123,6 +127,8 @@ public class Player : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
         levelNum = int.Parse(level.text);
+        levelNum = SceneManager.GetActiveScene().buildIndex;
+        level.text = SceneManager.GetActiveScene().buildIndex.ToString();
         floorNum = int.Parse(floor.text);
         Time.timeScale = 1f;
     }
@@ -266,7 +272,7 @@ public class Player : MonoBehaviour
 
         if (other.CompareTag("Portal"))
         {
-            if (int.Parse(floor.text) < 3)
+            if (int.Parse(floor.text) <= 3)
             {
                 floorNum++;
                 floor.text = floorNum.ToString();
@@ -279,7 +285,7 @@ public class Player : MonoBehaviour
                 floor.text = floorNum.ToString();
             }
 
-            if (level.text != "3")
+            if (int.Parse(floor.text) != 4)
             {
                 GameObject[] rooms = GameObject.FindGameObjectsWithTag("Room");
                 foreach(var room in rooms)
@@ -292,17 +298,22 @@ public class Player : MonoBehaviour
             } else
             {
 
-                bool[] secretChance = new bool[] {false, false, false, false , false, false, true, false, false, false };
-                bool chance = secretChance[Random.Range(0, secretChance.Length)];
+                Debug.Log("Начинаем переход");
 
-                if (SceneManager.GetActiveScene().buildIndex != 4)
+                bool[] secretChance = new bool[] { false, false, false, false, false, false, true, false, false, false };
+                bool chance = secretChance[Random.Range(0, secretChance.Length-1)];
+
+                if (SceneManager.GetActiveScene().buildIndex != 5)
+                    PlayerPrefs.SetInt("lastScene", SceneManager.GetActiveScene().buildIndex);
+
+                if (SceneManager.GetActiveScene().buildIndex != 3)
                     if (chance && SceneManager.GetActiveScene().buildIndex != 5)
                     {
                         SceneManager.LoadScene(5);
                     }
                     else
                     {
-                        if (PlayerPrefs.GetInt("lastScene") == 5)
+                        if (SceneManager.GetActiveScene().buildIndex == 5)
                             SceneManager.LoadScene(PlayerPrefs.GetInt("lastScene") + 1);
                         else
                             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
