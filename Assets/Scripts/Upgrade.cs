@@ -214,6 +214,7 @@ public class Upgrade : MonoBehaviour
         PlayerPrefs.SetInt("HP_1", 0);
         PlayerPrefs.SetInt("maxHealth", PlayerPrefs.GetInt("maxHealth") + 3);
         PlayerPrefs.SetInt("points", PlayerPrefs.GetInt("points") - 100);
+        SceneManager.LoadScene(4);
         /*first[0].SetActive(false);*/
     }
     public void addHP_2()
@@ -221,18 +222,21 @@ public class Upgrade : MonoBehaviour
         PlayerPrefs.SetInt("HP_2", 0);
         PlayerPrefs.SetInt("maxHealth", PlayerPrefs.GetInt("maxHealth") + 3);
         PlayerPrefs.SetInt("points", PlayerPrefs.GetInt("points") - 200);
+        SceneManager.LoadScene(4);
     }
     public void addHP_3()
     {
         PlayerPrefs.SetInt("HP_3", 0);
         PlayerPrefs.SetInt("maxHealth", PlayerPrefs.GetInt("maxHealth") + 3);
         PlayerPrefs.SetInt("points", PlayerPrefs.GetInt("points") - 300);
+        SceneManager.LoadScene(4);
     }
     public void addHP_4()
     {
         PlayerPrefs.SetInt("HP_4", 0);
         PlayerPrefs.SetInt("maxHealth", PlayerPrefs.GetInt("maxHealth") + 3);
         PlayerPrefs.SetInt("points", PlayerPrefs.GetInt("points") - 350);
+        SceneManager.LoadScene(4);
     }
 
     public void addARM_1()
@@ -240,24 +244,29 @@ public class Upgrade : MonoBehaviour
         PlayerPrefs.SetInt("ARM_1", 0);
         PlayerPrefs.SetInt("armor", PlayerPrefs.GetInt("armor") + 1);
         PlayerPrefs.SetInt("points", PlayerPrefs.GetInt("points") - 100);
+        SceneManager.LoadScene(4);
+
     }
     public void addARM_2()
     {
         PlayerPrefs.SetInt("ARM_2", 0);
         PlayerPrefs.SetInt("armor", PlayerPrefs.GetInt("armor") + 1);
         PlayerPrefs.SetInt("points", PlayerPrefs.GetInt("points") - 200);
+        SceneManager.LoadScene(4);
     }
     public void addARM_3()
     {
         PlayerPrefs.SetInt("ARM_3", 0);
         PlayerPrefs.SetInt("armor", PlayerPrefs.GetInt("armor") + 1);
         PlayerPrefs.SetInt("points", PlayerPrefs.GetInt("points") - 300);
+        SceneManager.LoadScene(4);
     }
     public void addARM_4()
     {
         PlayerPrefs.SetInt("ARM_4", 0);
         PlayerPrefs.SetInt("armor", PlayerPrefs.GetInt("armor") + 1);
         PlayerPrefs.SetInt("points", PlayerPrefs.GetInt("points") - 350);
+        SceneManager.LoadScene(4);
     }
 
     public void addDMG_1() 
@@ -265,24 +274,28 @@ public class Upgrade : MonoBehaviour
         PlayerPrefs.SetInt("DMG_1", 0);
         PlayerPrefs.SetInt("damage", PlayerPrefs.GetInt("damage") + 1);
         PlayerPrefs.SetInt("points", PlayerPrefs.GetInt("points") - 100);
+        SceneManager.LoadScene(4);
     }
     public void addDMG_2()
     {
         PlayerPrefs.SetInt("DMG_2", 0);
         PlayerPrefs.SetInt("damage", PlayerPrefs.GetInt("damage") + 1);
         PlayerPrefs.SetInt("points", PlayerPrefs.GetInt("points") - 200);
+        SceneManager.LoadScene(4);
     }
     public void addDMG_3()
     {
         PlayerPrefs.SetInt("DMG_3", 0);
         PlayerPrefs.SetInt("damage", PlayerPrefs.GetInt("damage") + 1);
         PlayerPrefs.SetInt("points", PlayerPrefs.GetInt("points") - 300);
+        SceneManager.LoadScene(4);
     }
     public void addDMG_4()
     {
         PlayerPrefs.SetInt("DMG_4", 0);
         PlayerPrefs.SetInt("damage", PlayerPrefs.GetInt("damage") + 1);
         PlayerPrefs.SetInt("points", PlayerPrefs.GetInt("points") - 350);
+        SceneManager.LoadScene(4);
     }
 
     public void NextBtn()
